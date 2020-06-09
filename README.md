@@ -8,3 +8,7 @@
 
 ![Application Screenshot 3](./screenshots/example3.png)
 
+![Application Screenshot 3](./screenshots/example4.png)
+
+![Application Screenshot 3](./screenshots/example5.png)
+
