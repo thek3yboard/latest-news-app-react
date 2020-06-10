@@ -68,14 +68,18 @@ export default class Home extends Component {
         this.setState({ 
             currentLanguage: e.target.value
         }, () => {
-            if(this.state.sortBy == null){
-                let url = urlAll + '&language=' + this.state.currentLanguage + '&q=' + this.state.search;
-                url = encodeURI(url);
-                this.apiCall(url);
+            if(this.state.search == ''){
+                return;
             }else{
-                let url = urlAll + '&language=' + this.state.currentLanguage + '&q=' + this.state.search + '&sortBy=' + this.state.sortBy;
-                url = encodeURI(url);
-                this.apiCall(url);
+                if(this.state.sortBy == null){
+                    let url = urlAll + '&language=' + this.state.currentLanguage + '&q=' + this.state.search;
+                    url = encodeURI(url);
+                    this.apiCall(url);
+                }else{
+                    let url = urlAll + '&language=' + this.state.currentLanguage + '&q=' + this.state.search + '&sortBy=' + this.state.sortBy;
+                    url = encodeURI(url);
+                    this.apiCall(url);
+                }
             }
         })
     }
@@ -84,14 +88,18 @@ export default class Home extends Component {
         this.setState({ 
             sortBy: e.target.value
         }, () => {
-            if(this.state.currentLanguage == null){
-                let url = urlAll + '&sortBy=' + this.state.sortBy + '&q=' + this.state.search;
-                url = encodeURI(url);
-                this.apiCall(url);
+            if(this.state.search == ''){
+                return;
             }else{
-                let url = urlAll + '&sortBy=' + this.state.sortBy + '&q=' + this.state.search + '&language=' + this.state.currentLanguage;
-                url = encodeURI(url);
-                this.apiCall(url);
+                if(this.state.currentLanguage == null){
+                    let url = urlAll + '&sortBy=' + this.state.sortBy + '&q=' + this.state.search;
+                    url = encodeURI(url);
+                    this.apiCall(url);
+                }else{
+                    let url = urlAll + '&sortBy=' + this.state.sortBy + '&q=' + this.state.search + '&language=' + this.state.currentLanguage;
+                    url = encodeURI(url);
+                    this.apiCall(url);
+                }
             }
         })
     }
